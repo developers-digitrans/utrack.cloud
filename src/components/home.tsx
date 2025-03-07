@@ -6,6 +6,7 @@ import FeaturesSection from "./sections/FeaturesSection";
 import PricingSection from "./sections/PricingSection";
 import Footer from "./layout/Footer";
 import AuthModal from "./auth/AuthModal";
+import BookDemoModal from "./modals/BookDemoModal";
 import { useTheme } from "../lib/theme";
 import { useTranslation } from "react-i18next";
 
@@ -14,17 +15,43 @@ const Home = () => {
   const [authModalType, setAuthModalType] = useState<"login" | "signup">(
     "login",
   );
+  const [demoModalOpen, setDemoModalOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { theme } = useTheme();
   const { t } = useTranslation();
 
-  const handleOpenAuthModal = (type: "login" | "signup") => {
-    setAuthModalType(type);
+  const handleOpenAuthModal = (type: "login" | "signup" | "demo") => {
+    if (type === "demo") {
+      handleOpenDemoModal();
+      return;
+    }
+    setAuthModalType(type as "login" | "signup");
     setAuthModalOpen(true);
   };
 
   const handleCloseAuthModal = () => {
     setAuthModalOpen(false);
+  };
+
+  const handleOpenDemoModal = () => {
+    setDemoModalOpen(true);
+  };
+
+  // Listen for custom event to open demo modal from pricing section
+  useEffect(() => {
+    const handleOpenDemoEvent = () => {
+      setDemoModalOpen(true);
+    };
+
+    window.addEventListener("openDemoModal", handleOpenDemoEvent);
+
+    return () => {
+      window.removeEventListener("openDemoModal", handleOpenDemoEvent);
+    };
+  }, []);
+
+  const handleCloseDemoModal = () => {
+    setDemoModalOpen(false);
   };
 
   // Mock user profile data
@@ -47,14 +74,14 @@ const Home = () => {
       {/* Hero Section */}
       <HeroSection
         onCtaClick={() => handleOpenAuthModal("signup")}
-        onSecondaryCtaClick={() => console.log("See how it works clicked")}
+        onSecondaryCtaClick={handleOpenDemoModal}
       />
 
       {/* Features Section */}
       <FeaturesSection />
 
-      {/* Pricing Section */}
-      <PricingSection />
+      {/* Pricing Section - Hidden for now */}
+      {/* <PricingSection /> */}
 
       {/* Footer */}
       <Footer />
@@ -65,6 +92,9 @@ const Home = () => {
         onClose={handleCloseAuthModal}
         defaultTab={authModalType}
       />
+
+      {/* Book Demo Modal */}
+      <BookDemoModal isOpen={demoModalOpen} onClose={handleCloseDemoModal} />
 
       {/* Scroll to top button */}
       <motion.button

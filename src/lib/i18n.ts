@@ -22,7 +22,14 @@ const resources = {
       hero_subtitle:
         "Boost productivity, enhance collaboration, and deliver projects on time with our intuitive project management platform designed for modern teams.",
       get_started: "Get Started Free",
+      book_demo: "Book a Demo",
       see_how: "See How It Works",
+      book_demo_description:
+        "Schedule a personalized demo to see how our platform can help your team.",
+      loading_calendar: "Loading calendar...",
+      calendar_error_title: "Calendar Unavailable",
+      calendar_error_message:
+        "We're having trouble loading our booking calendar. Please try again later or contact us directly.",
       scroll_explore: "Scroll to explore",
 
       // Features Section
@@ -217,7 +224,14 @@ const resources = {
       hero_subtitle:
         "Augmentez la productivité, améliorez la collaboration et livrez vos projets à temps grâce à notre plateforme intuitive de gestion de projet conçue pour les équipes modernes.",
       get_started: "Commencer gratuitement",
+      book_demo: "Réserver une démo",
       see_how: "Voir comment ça marche",
+      book_demo_description:
+        "Planifiez une démonstration personnalisée pour voir comment notre plateforme peut aider votre équipe.",
+      loading_calendar: "Chargement du calendrier...",
+      calendar_error_title: "Calendrier indisponible",
+      calendar_error_message:
+        "Nous rencontrons des difficultés pour charger notre calendrier de réservation. Veuillez réessayer plus tard ou nous contacter directement.",
       scroll_explore: "Défiler pour explorer",
 
       // Features Section
@@ -418,7 +432,14 @@ const resources = {
       hero_subtitle:
         "زيادة الإنتاجية، وتعزيز التعاون، وتسليم المشاريع في الوقت المحدد مع منصة إدارة المشاريع البديهية المصممة للفرق الحديثة.",
       get_started: "ابدأ مجانًا",
+      book_demo: "حجز عرض توضيحي",
       see_how: "شاهد كيف يعمل",
+      book_demo_description:
+        "جدولة عرض توضيحي مخصص لمعرفة كيف يمكن لمنصتنا مساعدة فريقك.",
+      loading_calendar: "جاري تحميل التقويم...",
+      calendar_error_title: "التقويم غير متاح",
+      calendar_error_message:
+        "نواجه مشكلة في تحميل تقويم الحجز. يرجى المحاولة مرة أخرى لاحقًا أو الاتصال بنا مباشرة.",
       scroll_explore: "مرر للاستكشاف",
 
       // Features Section

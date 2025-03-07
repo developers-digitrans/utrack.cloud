@@ -3,6 +3,15 @@ import { useRoutes, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./components/home";
 import Contact from "./components/pages/Contact";
 import About from "./components/pages/About";
+import Tasks from "./pages/features/Tasks";
+import Collaboration from "./pages/features/Collaboration";
+import TimeTracking from "./pages/features/TimeTracking";
+import Analytics from "./pages/features/Analytics";
+import Resources from "./pages/features/Resources";
+import Integrations from "./pages/features/Integrations";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import Cookies from "./pages/Cookies";
 import routes from "tempo-routes";
 import { ThemeContext, Theme, Language } from "./lib/theme";
 import { useTranslation } from "react-i18next";
@@ -75,6 +84,15 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
+            <Route path="/features/tasks" element={<Tasks />} />
+            <Route path="/features/collaboration" element={<Collaboration />} />
+            <Route path="/features/time-tracking" element={<TimeTracking />} />
+            <Route path="/features/analytics" element={<Analytics />} />
+            <Route path="/features/resources" element={<Resources />} />
+            <Route path="/features/integrations" element={<Integrations />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/cookies" element={<Cookies />} />
           </Routes>
           {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
         </>

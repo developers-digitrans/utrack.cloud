@@ -139,20 +139,6 @@ const FeaturesSection = ({
             </motion.div>
           ))}
         </motion.div>
-
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <a
-            href="#"
-            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary dark:bg-black hover:bg-primary/90 dark:hover:bg-black/90 transition-colors duration-300"
-          >
-            {t("explore_features")}
-          </a>
-        </motion.div>
       </div>
     </section>
   );

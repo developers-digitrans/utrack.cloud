@@ -83,16 +83,6 @@ const FeatureCard = ({
             </li>
           </ul>
         </CardContent>
-        <CardFooter>
-          <Button
-            variant="ghost"
-            className="group p-0 h-auto font-medium text-primary hover:text-primary/80 dark:hover:bg-black dark:hover:text-white"
-            onClick={onClick}
-          >
-            {ctaText}
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
-        </CardFooter>
       </Card>
     </motion.div>
   );

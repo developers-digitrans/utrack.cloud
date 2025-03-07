@@ -158,7 +158,11 @@ const PricingSection = ({ title, description, plans }: PricingSectionProps) => {
 
   const handleSelectPlan = (plan: PricingPlan) => {
     console.log(`Selected plan: ${plan.name}`);
-    // In a real implementation, this would navigate to checkout or sign up
+    // Open the booking modal
+    if (typeof window !== "undefined") {
+      const event = new CustomEvent("openDemoModal");
+      window.dispatchEvent(event);
+    }
   };
 
   return (

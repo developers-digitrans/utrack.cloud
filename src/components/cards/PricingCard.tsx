@@ -134,10 +134,10 @@ const PricingCard = ({
         <CardFooter>
           <Button
             onClick={() => onSelectPlan(plan)}
-            className={`w-full ${plan.popular ? "bg-primary dark:bg-black hover:bg-primary/90 dark:hover:bg-black/90 text-white" : "dark:bg-black dark:text-white"}`}
-            variant={plan.popular ? "default" : "outline"}
+            className={`w-full bg-primary dark:bg-black hover:bg-primary/90 dark:hover:bg-black/90 text-white`}
+            variant="default"
           >
-            {plan.ctaText || (t ? t("get_started") : "Get Started")}
+            Contact Sales
           </Button>
         </CardFooter>
       </Card>

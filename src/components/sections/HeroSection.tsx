@@ -27,7 +27,7 @@ const HeroSection = ({
   const heroTitle = title || t("hero_title");
   const heroSubtitle = subtitle || t("hero_subtitle");
   const heroCta = ctaText || t("get_started");
-  const heroSecondaryCta = secondaryCtaText || t("see_how");
+  const heroSecondaryCta = secondaryCtaText || t("book_demo") || "Book a Demo";
   return (
     <section className="relative w-full min-h-[800px] bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 from-indigo-50 via-purple-50 to-blue-50 flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background Elements */}
@@ -88,7 +88,9 @@ const HeroSection = ({
               <motion.div whileHover={{ y: -5 }} whileTap={{ y: 0 }}>
                 <Button
                   size="lg"
-                  onClick={onCtaClick}
+                  onClick={() =>
+                    window.open("https://app.utrack.cloud/", "_blank")
+                  }
                   className="bg-white dark:bg-black hover:bg-gray-100 dark:hover:bg-black/90 text-primary dark:text-white font-medium px-8 rounded-full"
                 >
                   {heroCta}

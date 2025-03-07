@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
 import {
@@ -11,6 +10,11 @@ import {
   Moon,
   Sun,
   Globe,
+  ArrowRight,
+  Facebook,
+  Twitter,
+  Linkedin,
+  MessageSquare,
 } from "lucide-react";
 import { Button } from "../ui/button";
 import {
@@ -73,7 +77,7 @@ const Navbar = ({
   };
 
   return (
-    <motion.header
+    <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 dark:bg-slate-900 bg-white dark:text-white text-gray-900",
         {
@@ -82,16 +86,29 @@ const Navbar = ({
           "bg-transparent": !isScrolled,
         },
       )}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.3 }}
     >
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-md bg-primary flex items-center justify-center">
-              <span className="text-white dark:text-black font-bold">UT</span>
+            <div className="h-8 w-8 rounded-md flex items-center justify-center dark:bg-white bg-black">
+              <svg
+                className="h-6 w-6 dark:text-black text-white"
+                viewBox="0 0 192 192"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#logoClip)">
+                  <path
+                    fill="currentColor"
+                    d="M 148.980469 34.386719 C 149.144531 28.046875 148.8125 21.691406 149.042969 15.351562 C 149.082031 14.398438 149.019531 13.570312 148.875 12.855469 L 118.140625 12.855469 C 118 13.546875 117.9375 14.328125 117.960938 15.246094 C 118.070312 19.628906 118.078125 24.042969 118.0625 40.382812 L 85.425781 40.382812 L 85.425781 71.203125 L 113.671875 71.203125 L 113.671875 71.234375 L 117.691406 71.234375 C 117.691406 85.496094 117.953125 99.554688 117.519531 113.59375 C 117.402344 117.410156 115.625 121.390625 113.824219 124.898438 C 106.367188 139.375 89.828125 147.152344 74.464844 143.746094 C 57.347656 139.949219 45.390625 126.519531 44.894531 109.542969 C 44.441406 93.898438 44.738281 78.242188 44.675781 62.589844 C 44.667969 61.496094 44.628906 60.402344 44.566406 59.285156 L 14.097656 59.285156 C 14.058594 59.804688 14.027344 60.316406 14.035156 60.832031 C 14.46875 81.089844 13.28125 101.558594 15.84375 121.546875 C 19.195312 147.632812 42.78125 169.769531 67.921875 174.082031 C 97.25 179.121094 124.820312 166.914062 139.34375 142.796875 C 146.6875 130.609375 149.285156 117.339844 149.402344 103.40625 C 149.488281 92.867188 149.417969 82.339844 149.417969 71.109375 L 178.746094 71.109375 L 178.746094 40.390625 L 148.988281 40.390625 C 148.980469 34.710938 148.980469 34.550781 148.980469 34.386719 Z M 148.980469 34.386719 "
+                  />
+                </g>
+                <defs>
+                  <clipPath id="logoClip">
+                    <path d="M 14 12.828125 L 178.746094 12.828125 L 178.746094 176 L 14 176 Z M 14 12.828125 " />
+                  </clipPath>
+                </defs>
+              </svg>
             </div>
             <span className="font-bold text-xl">utrack</span>
           </div>
@@ -125,14 +142,15 @@ const Navbar = ({
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              <NavigationMenuItem>
+              {/* Pricing link hidden for now */}
+              {/* <NavigationMenuItem>
                 <Link
                   to="/pricing"
                   className="px-4 py-2 text-sm font-medium hover:text-primary"
                 >
                   {t("pricing")}
                 </Link>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
               <NavigationMenuItem>
                 <Link
                   to="/about"
@@ -206,81 +224,55 @@ const Navbar = ({
             </DropdownMenu>
 
             {/* Authentication Buttons */}
-            {isLoggedIn ? (
-              <div className="flex items-center">
-                <NavigationMenu>
-                  <NavigationMenuList>
-                    <NavigationMenuItem>
-                      <NavigationMenuTrigger className="flex items-center gap-2">
-                        {userProfile.avatar ? (
-                          <img
-                            src={userProfile.avatar}
-                            alt="User avatar"
-                            className="w-8 h-8 rounded-full"
-                          />
-                        ) : (
-                          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                            <User className="h-4 w-4 text-primary" />
-                          </div>
-                        )}
-                        <span>{userProfile.name}</span>
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent>
-                        <ul className="w-48 p-2">
-                          <li>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                to="/dashboard"
-                                className="block px-4 py-2 text-sm hover:bg-accent rounded-md w-full text-left"
-                              >
-                                {t("dashboard")}
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
-                          <li>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                to="/profile"
-                                className="block px-4 py-2 text-sm hover:bg-accent rounded-md w-full text-left"
-                              >
-                                {t("profile")}
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
-                          <li>
-                            <NavigationMenuLink asChild>
-                              <button
-                                onClick={handleLogout}
-                                className="block px-4 py-2 text-sm hover:bg-accent rounded-md w-full text-left text-red-500"
-                              >
-                                {t("logout")}
-                              </button>
-                            </NavigationMenuLink>
-                          </li>
-                        </ul>
-                      </NavigationMenuContent>
-                    </NavigationMenuItem>
-                  </NavigationMenuList>
-                </NavigationMenu>
+            <>
+              <div className="flex items-center space-x-4 mr-4">
+                {["Facebook", "Twitter", "Discord", "LinkedIn"].map(
+                  (platform, index) => (
+                    <a
+                      key={index}
+                      href={
+                        platform.toLowerCase() === "discord"
+                          ? "https://discord.com"
+                          : `https://${platform.toLowerCase()}.com`
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors"
+                      aria-label={`${platform} link`}
+                    >
+                      {platform === "Facebook" && (
+                        <Facebook className="h-5 w-5" />
+                      )}
+                      {platform === "Twitter" && (
+                        <Twitter className="h-5 w-5" />
+                      )}
+                      {platform === "Discord" && (
+                        <MessageSquare className="h-5 w-5" />
+                      )}
+                      {platform === "LinkedIn" && (
+                        <Linkedin className="h-5 w-5" />
+                      )}
+                    </a>
+                  ),
+                )}
               </div>
-            ) : (
-              <>
-                <Button
-                  variant="ghost"
-                  onClick={() => onOpenAuthModal("login")}
-                  className="flex items-center gap-1"
-                >
-                  <LogIn className="h-4 w-4 mr-1" />
-                  {t("login")}
-                </Button>
-                <Button
-                  onClick={() => onOpenAuthModal("signup")}
-                  className="bg-primary hover:bg-primary/90 dark:bg-black dark:hover:bg-black/90 text-white"
-                >
-                  {t("signup")}
-                </Button>
-              </>
-            )}
+              <Button
+                variant="ghost"
+                onClick={() =>
+                  window.open("https://app.utrack.cloud", "_blank")
+                }
+                className="flex items-center gap-1"
+              >
+                <ArrowRight className="h-4 w-4 mr-1" />
+                Get Started
+              </Button>
+              <Button
+                onClick={() => onOpenAuthModal("demo")}
+                className="bg-primary hover:bg-primary/90 dark:bg-black dark:hover:bg-black/90 text-white"
+              >
+                Book a Demo
+              </Button>
+            </>
           </div>
         </div>
 
@@ -296,10 +288,24 @@ const Navbar = ({
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center py-4">
                   <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-md bg-primary flex items-center justify-center">
-                      <span className="text-white dark:text-black font-bold">
-                        UT
-                      </span>
+                    <div className="h-8 w-8 rounded-md flex items-center justify-center dark:bg-white bg-black">
+                      <svg
+                        className="h-6 w-6 dark:text-black text-white"
+                        viewBox="0 0 192 192"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clipPath="url(#logoClipMobile)">
+                          <path
+                            fill="currentColor"
+                            d="M 148.980469 34.386719 C 149.144531 28.046875 148.8125 21.691406 149.042969 15.351562 C 149.082031 14.398438 149.019531 13.570312 148.875 12.855469 L 118.140625 12.855469 C 118 13.546875 117.9375 14.328125 117.960938 15.246094 C 118.070312 19.628906 118.078125 24.042969 118.0625 40.382812 L 85.425781 40.382812 L 85.425781 71.203125 L 113.671875 71.203125 L 113.671875 71.234375 L 117.691406 71.234375 C 117.691406 85.496094 117.953125 99.554688 117.519531 113.59375 C 117.402344 117.410156 115.625 121.390625 113.824219 124.898438 C 106.367188 139.375 89.828125 147.152344 74.464844 143.746094 C 57.347656 139.949219 45.390625 126.519531 44.894531 109.542969 C 44.441406 93.898438 44.738281 78.242188 44.675781 62.589844 C 44.667969 61.496094 44.628906 60.402344 44.566406 59.285156 L 14.097656 59.285156 C 14.058594 59.804688 14.027344 60.316406 14.035156 60.832031 C 14.46875 81.089844 13.28125 101.558594 15.84375 121.546875 C 19.195312 147.632812 42.78125 169.769531 67.921875 174.082031 C 97.25 179.121094 124.820312 166.914062 139.34375 142.796875 C 146.6875 130.609375 149.285156 117.339844 149.402344 103.40625 C 149.488281 92.867188 149.417969 82.339844 149.417969 71.109375 L 178.746094 71.109375 L 178.746094 40.390625 L 148.988281 40.390625 C 148.980469 34.710938 148.980469 34.550781 148.980469 34.386719 Z M 148.980469 34.386719 "
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="logoClipMobile">
+                            <path d="M 14 12.828125 L 178.746094 12.828125 L 178.746094 176 L 14 176 Z M 14 12.828125 " />
+                          </clipPath>
+                        </defs>
+                      </svg>
                     </div>
                     <span className="font-bold text-xl">utrack</span>
                   </div>
@@ -331,14 +337,15 @@ const Navbar = ({
                   </div>
 
                   <div className="space-y-2">
-                    <SheetClose asChild>
+                    {/* Pricing link hidden for now */}
+                    {/* <SheetClose asChild>
                       <Link
                         to="/pricing"
                         className="block px-2 py-2 text-sm hover:bg-accent rounded-md"
                       >
                         {t("pricing")}
                       </Link>
-                    </SheetClose>
+                    </SheetClose> */}
                     <SheetClose asChild>
                       <Link
                         to="/about"
@@ -403,76 +410,35 @@ const Navbar = ({
                 </div>
 
                 <div className="mt-auto border-t pt-4">
-                  {isLoggedIn ? (
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2 px-2 py-2">
-                        {userProfile.avatar ? (
-                          <img
-                            src={userProfile.avatar}
-                            alt="User avatar"
-                            className="w-8 h-8 rounded-full"
-                          />
-                        ) : (
-                          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                            <User className="h-4 w-4 text-primary" />
-                          </div>
-                        )}
-                        <span className="font-medium">{userProfile.name}</span>
-                      </div>
-                      <SheetClose asChild>
-                        <Link
-                          to="/dashboard"
-                          className="block px-2 py-2 text-sm hover:bg-accent rounded-md"
-                        >
-                          {t("dashboard")}
-                        </Link>
-                      </SheetClose>
-                      <SheetClose asChild>
-                        <Link
-                          to="/profile"
-                          className="block px-2 py-2 text-sm hover:bg-accent rounded-md"
-                        >
-                          {t("profile")}
-                        </Link>
-                      </SheetClose>
-                      <SheetClose asChild>
-                        <button
-                          onClick={handleLogout}
-                          className="block w-full text-left px-2 py-2 text-sm hover:bg-accent rounded-md text-red-500"
-                        >
-                          {t("logout")}
-                        </button>
-                      </SheetClose>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col space-y-2">
-                      <SheetClose asChild>
-                        <Button
-                          variant="outline"
-                          onClick={() => onOpenAuthModal("login")}
-                          className="w-full justify-center dark:bg-black dark:text-white dark:border-gray-600"
-                        >
-                          <LogIn className="h-4 w-4 mr-2" />
-                          {t("login")}
-                        </Button>
-                      </SheetClose>
-                      <SheetClose asChild>
-                        <Button
-                          onClick={() => onOpenAuthModal("signup")}
-                          className="w-full justify-center bg-primary hover:bg-primary/90 dark:bg-black dark:hover:bg-black/90 text-white"
-                        >
-                          {t("signup")}
-                        </Button>
-                      </SheetClose>
-                    </div>
-                  )}
+                  <div className="flex flex-col space-y-2">
+                    <SheetClose asChild>
+                      <Button
+                        variant="outline"
+                        onClick={() =>
+                          window.open("https://app.utrack.cloud", "_blank")
+                        }
+                        className="w-full justify-center dark:bg-black dark:text-white dark:border-gray-600"
+                      >
+                        <ArrowRight className="h-4 w-4 mr-2" />
+                        Get Started
+                      </Button>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Button
+                        onClick={() => onOpenAuthModal("demo")}
+                        className="w-full justify-center bg-primary hover:bg-primary/90 dark:bg-black dark:hover:bg-black/90 text-white"
+                      >
+                        Book a Demo
+                      </Button>
+                    </SheetClose>
+                  </div>
                 </div>
               </div>
             </SheetContent>
           </Sheet>
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 };
 
