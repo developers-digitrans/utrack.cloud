@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "./layout/Navbar";
 import HeroSection from "./sections/HeroSection";
+import DemoSection from "./sections/DemoSection";
 import FeaturesSection from "./sections/FeaturesSection";
 import PricingSection from "./sections/PricingSection";
 import Footer from "./layout/Footer";
@@ -75,6 +76,12 @@ const Home = () => {
       <HeroSection
         onCtaClick={() => handleOpenAuthModal("signup")}
         onSecondaryCtaClick={handleOpenDemoModal}
+      />
+
+      {/* Demo Section */}
+      <DemoSection
+        arcadeUrl="https://app.arcade.software/share/template" // Replace with your actual arcade.software URL
+        onCtaClick={() => window.open("https://app.utrack.cloud", "_blank")}
       />
 
       {/* Features Section */}

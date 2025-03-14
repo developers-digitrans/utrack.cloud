@@ -1,14 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, ExternalLink } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
 import { useTheme } from "../../lib/theme";
 import { useTranslation } from "react-i18next";
 import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import { Label } from "../ui/label";
 
 interface OfficeLocation {
   city: string;
@@ -29,9 +26,9 @@ const Contact = () => {
     {
       city: "Dubai",
       country: "United Arab Emirates",
-      address: "Business Bay, Downtown Dubai, UAE",
-      phone: "+971 4 123 4567",
-      email: "dubai@utrack.com",
+      address: "Dubai, UAE",
+      phone: "+971 9 50 205 57 33",
+      email: "info@digi-trans.org",
       hours: "Sun-Thu: 9:00 AM - 6:00 PM",
       mapUrl: "https://maps.google.com/?q=Business+Bay+Dubai",
       image:
@@ -40,9 +37,9 @@ const Contact = () => {
     {
       city: "Paris",
       country: "France",
-      address: "75008 Paris, France",
-      phone: "+33 1 23 45 67 89",
-      email: "paris@utrack.com",
+      address: "Paris, France",
+      phone: "+33 6 13 70 97 58",
+      email: "info@digi-trans.org",
       hours: "Mon-Fri: 9:00 AM - 6:00 PM",
       mapUrl: "https://maps.google.com/?q=75008+Paris+France",
       image:
@@ -51,9 +48,9 @@ const Contact = () => {
     {
       city: "London",
       country: "United Kingdom",
-      address: "Canary Wharf, London E14, UK",
-      phone: "+44 20 1234 5678",
-      email: "london@utrack.com",
+      address: "London, UK",
+      phone: "+44 777 11 51 435",
+      email: "info@digi-trans.org",
       hours: "Mon-Fri: 9:00 AM - 6:00 PM",
       mapUrl: "https://maps.google.com/?q=Canary+Wharf+London",
       image:
@@ -63,8 +60,8 @@ const Contact = () => {
       city: "Casablanca",
       country: "Morocco",
       address: "Casablanca Business District, Morocco",
-      phone: "+212 5 22 12 34 56",
-      email: "casablanca@utrack.com",
+      phone: "+212 6 67 19 71 88",
+      email: "info@digi-trans.org",
       hours: "Mon-Fri: 9:00 AM - 6:00 PM",
       mapUrl: "https://maps.google.com/?q=Casablanca+Morocco",
       image:
@@ -162,140 +159,9 @@ const Contact = () => {
                       </p>
                     </div>
                   </div>
-
-                  <div className="mt-6">
-                    <a
-                      href={office.mapUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium"
-                    >
-                      {t("view_on_map") || "View on map"}
-                      <ExternalLink className="ml-1 h-4 w-4" />
-                    </a>
-                  </div>
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="py-16 px-4 md:px-8 lg:px-12 dark:bg-slate-900 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold mb-6 dark:text-white text-gray-900">
-                {t("get_in_touch") || "Get in Touch"}
-              </h2>
-              <p className="text-lg dark:text-gray-300 text-gray-600 mb-8">
-                {t("contact_form_subtitle") ||
-                  "Have questions about our products or services? Fill out the form and our team will get back to you shortly."}
-              </p>
-
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <Mail className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium dark:text-white text-gray-900">
-                      {t("email_us") || "Email Us"}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      info@utrack.com
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <Phone className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium dark:text-white text-gray-900">
-                      {t("call_us") || "Call Us"}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      +1 (555) 123-4567
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8"
-            >
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  console.log("Form submitted");
-                }}
-                className="space-y-6"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">
-                      {t("full_name") || "Full Name"}
-                    </Label>
-                    <Input
-                      id="name"
-                      placeholder="John Doe"
-                      className="dark:bg-slate-700 dark:border-slate-600"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">{t("email") || "Email"}</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="john@example.com"
-                      className="dark:bg-slate-700 dark:border-slate-600"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="subject">{t("subject") || "Subject"}</Label>
-                  <Input
-                    id="subject"
-                    placeholder="How can we help you?"
-                    className="dark:bg-slate-700 dark:border-slate-600"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">{t("message") || "Message"}</Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Your message here..."
-                    className="min-h-[150px] dark:bg-slate-700 dark:border-slate-600"
-                    required
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full bg-primary hover:bg-primary/90 dark:bg-black dark:hover:bg-black/90 text-white"
-                >
-                  {t("send_message") || "Send Message"}
-                </Button>
-              </form>
-            </motion.div>
           </div>
         </div>
       </section>

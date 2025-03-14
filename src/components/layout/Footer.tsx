@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Twitter, MessageSquare, Linkedin } from "lucide-react";
 import { Separator } from "../ui/separator";
 import { useTranslation } from "react-i18next";
 
@@ -68,6 +68,33 @@ const Footer = ({
             <p className="text-slate-300 text-sm max-w-md">
               {t("company_description", companyDescription)}
             </p>
+          </div>
+
+          {/* Social Media Icons */}
+          <div className="flex items-center space-x-4">
+            {["Facebook", "Twitter", "Discord", "LinkedIn"].map(
+              (platform, index) => (
+                <a
+                  key={index}
+                  href={
+                    platform.toLowerCase() === "discord"
+                      ? "https://discord.com"
+                      : `https://${platform.toLowerCase()}.com`
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                  aria-label={`${platform} link`}
+                >
+                  {platform === "Facebook" && <Facebook className="h-5 w-5" />}
+                  {platform === "Twitter" && <Twitter className="h-5 w-5" />}
+                  {platform === "Discord" && (
+                    <MessageSquare className="h-5 w-5" />
+                  )}
+                  {platform === "LinkedIn" && <Linkedin className="h-5 w-5" />}
+                </a>
+              ),
+            )}
           </div>
         </div>
 

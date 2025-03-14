@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { ArrowRight, ArrowDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { useTranslation } from "react-i18next";
@@ -24,16 +24,37 @@ const HeroSection = ({
   const { t } = useTranslation();
 
   // Use translated text or fallback to props
-  const heroTitle = title || t("hero_title");
-  const heroSubtitle = subtitle || t("hero_subtitle");
+  const heroTitle =
+    title ||
+    t("hero_title") ||
+    "Streamline Your Projects with AI Powered Project Management & Risk Mitigation Platform";
+  const heroSubtitle =
+    subtitle ||
+    t("hero_subtitle") ||
+    "Boost productivity, enhance collaboration, and deliver projects on time with our our agentic big-project operating system, and bring intelligence and automation to large programme management";
   const heroCta = ctaText || t("get_started");
   const heroSecondaryCta = secondaryCtaText || t("book_demo") || "Book a Demo";
   return (
-    <section className="relative w-full min-h-[800px] bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 from-indigo-50 via-purple-50 to-blue-50 flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+    <section className="relative w-full min-h-[800px] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <video
+          className="absolute w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/videos/startup.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-black bg-opacity-50 dark:bg-opacity-70"></div>
+      </div>
+
+      {/* Background Elements - kept for additional visual effect */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute -top-20 -right-20 w-96 h-96 bg-purple-200 rounded-full opacity-20 blur-3xl"
+          className="absolute -top-20 -right-20 w-96 h-96 bg-purple-200 rounded-full opacity-10 blur-3xl"
           animate={{
             y: [0, 20, 0],
             x: [0, 15, 0],
@@ -45,7 +66,7 @@ const HeroSection = ({
           }}
         />
         <motion.div
-          className="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-200 rounded-full opacity-20 blur-3xl"
+          className="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-200 rounded-full opacity-10 blur-3xl"
           animate={{
             y: [0, -20, 0],
             x: [0, -15, 0],
@@ -57,7 +78,7 @@ const HeroSection = ({
           }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/4 w-64 h-64 bg-indigo-300 rounded-full opacity-10 blur-3xl"
+          className="absolute top-1/2 left-1/4 w-64 h-64 bg-indigo-300 rounded-full opacity-5 blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
           }}
@@ -78,25 +99,13 @@ const HeroSection = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight dark:text-white text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
               {heroTitle}
             </h1>
-            <p className="text-xl dark:text-gray-300 text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto lg:mx-0">
               {heroSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <motion.div whileHover={{ y: -5 }} whileTap={{ y: 0 }}>
-                <Button
-                  size="lg"
-                  onClick={() =>
-                    window.open("https://app.utrack.cloud/", "_blank")
-                  }
-                  className="bg-white dark:bg-black hover:bg-gray-100 dark:hover:bg-black/90 text-primary dark:text-white font-medium px-8 rounded-full"
-                >
-                  {heroCta}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </motion.div>
               <motion.div whileHover={{ y: -5 }} whileTap={{ y: 0 }}>
                 <Button
                   variant="outline"

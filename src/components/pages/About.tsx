@@ -11,51 +11,27 @@ const About = () => {
   const { theme } = useTheme();
   const { t } = useTranslation();
 
-  // Leadership team data
-  const leadershipTeam = [
-    {
-      name: "Dr. Markus Weinberger",
-      role: "CEO & Founder",
-      image:
-        "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=256&auto=format&fit=crop",
-      bio: "Dr. Markus Weinberger leads DIGITRANS.AI with over 20 years of experience in digital transformation and innovation.",
-    },
-    {
-      name: "Dr. Sonja Strohmaier",
-      role: "CTO",
-      image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=256&auto=format&fit=crop",
-      bio: "Dr. Sonja Strohmaier oversees technological development and innovation strategies at DIGITRANS.AI.",
-    },
-    {
-      name: "Michael Schmid",
-      role: "COO",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=256&auto=format&fit=crop",
-      bio: "Michael Schmid manages operations and ensures efficient implementation of DIGITRANS.AI's strategic initiatives.",
-    },
-  ];
-
   // Core values
   const coreValues = [
     {
       title: "Innovation",
       description:
-        "Pioneering new technological solutions for digital transformation",
+        "Pioneering new technological solutions for digital transformation in industry",
     },
     {
       title: "Sustainability",
       description:
-        "Developing eco-friendly technologies for a carbon-neutral industry",
+        "Developing eco-friendly technologies for a carbon-neutral industrial future",
     },
     {
       title: "Collaboration",
-      description: "Working closely with partners across Southeastern Europe",
+      description:
+        "Working closely with partners across Southeastern Europe to drive digital change",
     },
     {
       title: "Excellence",
       description:
-        "Delivering high-quality solutions and services to our clients",
+        "Delivering high-quality solutions and services throughout the entire product lifecycle",
     },
   ];
 
@@ -76,18 +52,20 @@ const About = () => {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white text-gray-900">
-                About DIGITRANS.AI
+                About digi-trans.org
               </h1>
               <p className="text-xl dark:text-gray-300 text-gray-600 mb-8">
-                Pioneering digital transformation solutions for a sustainable
-                future
+                Pioneering digital transformation solutions for sustainable
+                industry in Southeastern Europe
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button
                   className="bg-primary hover:bg-primary/90 dark:bg-black dark:hover:bg-black/90 text-white"
-                  onClick={() => window.open("https://digi-trans.ai", "_blank")}
+                  onClick={() =>
+                    window.open("https://digi-trans.org", "_blank")
+                  }
                 >
-                  Visit DIGITRANS.AI
+                  Visit digi-trans.org
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </Button>
                 <Button
@@ -107,8 +85,8 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop"
-                alt="Digital Transformation"
+                src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=800&auto=format&fit=crop"
+                alt="Industrial Digital Transformation"
                 className="rounded-lg shadow-xl w-full object-cover max-h-[400px]"
               />
             </motion.div>
@@ -130,9 +108,10 @@ const About = () => {
               Our Company
             </h2>
             <p className="text-lg dark:text-gray-300 text-gray-600 max-w-3xl mx-auto">
-              DIGITRANS.AI is at the forefront of digital transformation,
-              providing innovative technological solutions for businesses across
-              Southeastern Europe.
+              digi-trans.org is at the forefront of digital transformation,
+              specializing in innovative technological solutions for industrial
+              businesses across Southeastern Europe, with a focus on
+              sustainability and future-oriented technologies.
             </p>
           </motion.div>
 
@@ -148,11 +127,12 @@ const About = () => {
                 Our Vision
               </h3>
               <p className="dark:text-gray-200 text-gray-700 mb-6">
-                DIGITRANS.AI envisions supporting Southeastern European industry
-                with new technological systems and digital tools. We are
-                committed to fostering sustainability, innovation, and research
-                & development to create a more efficient and environmentally
-                friendly industrial landscape.
+                digi-trans.org envisions transforming Southeastern European
+                industry through advanced digital technologies and sustainable
+                solutions. We are committed to fostering innovation,
+                sustainability, and research & development to create a more
+                efficient, competitive, and environmentally friendly industrial
+                landscape for the region.
               </p>
               <ul className="space-y-2">
                 {coreValues.slice(0, 2).map((value, index) => (
@@ -182,11 +162,14 @@ const About = () => {
                 Our Mission
               </h3>
               <p className="dark:text-gray-200 text-gray-700 mb-6">
-                DIGITRANS.AI is dedicated to representing future-oriented
+                digi-trans.org is dedicated to representing future-oriented
                 technologies and serving customers throughout the entire product
                 lifecycle. We drive innovation for a sustainable and
-                carbon-neutral industry, providing comprehensive solutions that
-                address the evolving needs of businesses in the digital age.
+                carbon-neutral industry, providing comprehensive digital
+                transformation solutions that address the evolving needs of
+                industrial businesses in Southeastern Europe. Our mission is to
+                be the leading partner for industrial digital transformation in
+                the region.
               </p>
               <ul className="space-y-2">
                 {coreValues.slice(2, 4).map((value, index) => (
@@ -214,9 +197,10 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p className="text-lg dark:text-gray-300 text-gray-600 max-w-3xl mx-auto italic">
-              "At DIGITRANS.AI, we believe that digital transformation is not
-              just about technology—it's about reimagining how businesses
-              operate and deliver value in the digital age."
+              "At digi-trans.org, we believe that digital transformation is not
+              just about technology—it's about reimagining how industrial
+              businesses operate and deliver value in a sustainable, efficient,
+              and future-oriented way."
             </p>
           </motion.div>
         </div>
@@ -236,8 +220,10 @@ const About = () => {
               Our Approach to Digital Transformation
             </h2>
             <p className="text-lg dark:text-gray-300 text-gray-600 max-w-3xl mx-auto">
-              We combine cutting-edge technology with industry expertise to
-              deliver comprehensive digital transformation solutions.
+              We combine cutting-edge technology with deep industry expertise to
+              deliver comprehensive digital transformation solutions tailored to
+              the specific needs of industrial businesses in Southeastern
+              Europe.
             </p>
           </motion.div>
 
@@ -256,9 +242,10 @@ const About = () => {
                 Assessment & Strategy
               </h3>
               <p className="dark:text-gray-300 text-gray-600">
-                We begin by thoroughly analyzing your current systems and
-                processes to identify opportunities for digital enhancement and
-                develop a tailored transformation strategy.
+                We begin by thoroughly analyzing your current industrial systems
+                and processes to identify opportunities for digital enhancement
+                and develop a tailored transformation strategy aligned with your
+                business goals and sustainability objectives.
               </p>
             </motion.div>
 
@@ -277,8 +264,9 @@ const About = () => {
               </h3>
               <p className="dark:text-gray-300 text-gray-600">
                 Our expert team implements innovative technological solutions
-                and seamlessly integrates them with your existing infrastructure
-                to ensure a smooth transition.
+                and seamlessly integrates them with your existing industrial
+                infrastructure to ensure a smooth transition to a more
+                digitalized and sustainable operation.
               </p>
             </motion.div>
 
@@ -296,99 +284,12 @@ const About = () => {
                 Optimization & Support
               </h3>
               <p className="dark:text-gray-300 text-gray-600">
-                We provide ongoing optimization and support to ensure your
-                digital transformation continues to deliver value and adapt to
-                evolving business needs.
+                We provide ongoing optimization and support throughout the
+                entire product lifecycle to ensure your digital transformation
+                continues to deliver value, improve sustainability, and adapt to
+                evolving industrial business needs.
               </p>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership Team */}
-      <section className="py-16 px-4 md:px-8 lg:px-12 dark:bg-slate-800 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="mb-12 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-3xl font-bold mb-4 dark:text-white text-gray-900">
-              Our Leadership Team
-            </h2>
-            <p className="text-lg dark:text-gray-300 text-gray-600 max-w-3xl mx-auto">
-              Meet the experts driving innovation and excellence at DIGITRANS.AI
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {leadershipTeam.map((leader, index) => (
-              <motion.div
-                key={index}
-                className="bg-gray-50 dark:bg-slate-700 rounded-lg overflow-hidden shadow-md"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <img
-                  src={leader.image}
-                  alt={leader.name}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1 dark:text-white text-gray-900">
-                    {leader.name}
-                  </h3>
-                  <p className="text-primary font-medium mb-3">{leader.role}</p>
-                  <p className="dark:text-gray-300 text-gray-600">
-                    {leader.bio}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Partners & Collaborations */}
-      <section className="py-16 px-4 md:px-8 lg:px-12 dark:bg-slate-900 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="mb-12 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-3xl font-bold mb-4 dark:text-white text-gray-900">
-              Partners & Collaborations
-            </h2>
-            <p className="text-lg dark:text-gray-300 text-gray-600 max-w-3xl mx-auto">
-              We work with leading organizations across Southeastern Europe to
-              drive digital innovation
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[1, 2, 3, 4].map((item) => (
-              <motion.div
-                key={item}
-                className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md flex items-center justify-center h-32"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: item * 0.1 }}
-              >
-                <img
-                  src={`https://api.dicebear.com/7.x/initials/svg?seed=Partner${item}`}
-                  alt={`Partner ${item}`}
-                  className="h-16"
-                />
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
@@ -406,8 +307,9 @@ const About = () => {
               Ready to Transform Your Business?
             </h2>
             <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
-              Partner with DIGITRANS.AI to unlock the full potential of digital
-              transformation for your organization.
+              Partner with digi-trans.org to unlock the full potential of
+              digital transformation for your industrial organization in
+              Southeastern Europe.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -420,7 +322,7 @@ const About = () => {
               <Button
                 variant="outline"
                 className="border-white text-white hover:bg-white/10"
-                onClick={() => window.open("https://digi-trans.ai", "_blank")}
+                onClick={() => window.open("https://digi-trans.org", "_blank")}
               >
                 Learn More
                 <ExternalLink className="ml-2 h-4 w-4" />

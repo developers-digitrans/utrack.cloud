@@ -225,47 +225,6 @@ const Navbar = ({
 
             {/* Authentication Buttons */}
             <>
-              <div className="flex items-center space-x-4 mr-4">
-                {["Facebook", "Twitter", "Discord", "LinkedIn"].map(
-                  (platform, index) => (
-                    <a
-                      key={index}
-                      href={
-                        platform.toLowerCase() === "discord"
-                          ? "https://discord.com"
-                          : `https://${platform.toLowerCase()}.com`
-                      }
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors"
-                      aria-label={`${platform} link`}
-                    >
-                      {platform === "Facebook" && (
-                        <Facebook className="h-5 w-5" />
-                      )}
-                      {platform === "Twitter" && (
-                        <Twitter className="h-5 w-5" />
-                      )}
-                      {platform === "Discord" && (
-                        <MessageSquare className="h-5 w-5" />
-                      )}
-                      {platform === "LinkedIn" && (
-                        <Linkedin className="h-5 w-5" />
-                      )}
-                    </a>
-                  ),
-                )}
-              </div>
-              <Button
-                variant="ghost"
-                onClick={() =>
-                  window.open("https://app.utrack.cloud", "_blank")
-                }
-                className="flex items-center gap-1"
-              >
-                <ArrowRight className="h-4 w-4 mr-1" />
-                Get Started
-              </Button>
               <Button
                 onClick={() => onOpenAuthModal("demo")}
                 className="bg-primary hover:bg-primary/90 dark:bg-black dark:hover:bg-black/90 text-white"
@@ -411,18 +370,6 @@ const Navbar = ({
 
                 <div className="mt-auto border-t pt-4">
                   <div className="flex flex-col space-y-2">
-                    <SheetClose asChild>
-                      <Button
-                        variant="outline"
-                        onClick={() =>
-                          window.open("https://app.utrack.cloud", "_blank")
-                        }
-                        className="w-full justify-center dark:bg-black dark:text-white dark:border-gray-600"
-                      >
-                        <ArrowRight className="h-4 w-4 mr-2" />
-                        Get Started
-                      </Button>
-                    </SheetClose>
                     <SheetClose asChild>
                       <Button
                         onClick={() => onOpenAuthModal("demo")}

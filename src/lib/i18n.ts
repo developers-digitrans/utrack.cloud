@@ -18,9 +18,14 @@ const resources = {
       logout: "Logout",
 
       // Hero Section
-      hero_title: "Streamline Your Projects with Powerful Management Tools",
+      experience_utrack: "Experience utrack in Action",
+      try_interactive_demo:
+        "Try our interactive demo to see how utrack can transform your project management workflow",
+      watch_demo: "Watch Demo",
+      hero_title:
+        "Streamline Your Projects with AI Powered Project Management & Risk Mitigation Platform",
       hero_subtitle:
-        "Boost productivity, enhance collaboration, and deliver projects on time with our intuitive project management platform designed for modern teams.",
+        "Boost productivity, enhance collaboration, and deliver projects on time with our our agentic big-project operating system, and bring intelligence and automation to large programme management",
       get_started: "Get Started Free",
       book_demo: "Book a Demo",
       see_how: "See How It Works",
@@ -220,9 +225,14 @@ const resources = {
       logout: "Déconnexion",
 
       // Hero Section
-      hero_title: "Simplifiez vos projets avec des outils de gestion puissants",
+      experience_utrack: "Découvrez utrack en action",
+      try_interactive_demo:
+        "Essayez notre démo interactive pour voir comment utrack peut transformer votre flux de gestion de projet",
+      watch_demo: "Regarder la démo",
+      hero_title:
+        "Simplifiez vos projets avec une plateforme de gestion de projet et d'atténuation des risques alimentée par l'IA",
       hero_subtitle:
-        "Augmentez la productivité, améliorez la collaboration et livrez vos projets à temps grâce à notre plateforme intuitive de gestion de projet conçue pour les équipes modernes.",
+        "Augmentez la productivité, améliorez la collaboration et livrez vos projets à temps grâce à notre système d'exploitation agentic pour grands projets, et apportez intelligence et automatisation à la gestion de programmes importants.",
       get_started: "Commencer gratuitement",
       book_demo: "Réserver une démo",
       see_how: "Voir comment ça marche",
@@ -428,9 +438,14 @@ const resources = {
       logout: "تسجيل الخروج",
 
       // Hero Section
-      hero_title: "تبسيط مشاريعك بأدوات إدارة قوية",
+      experience_utrack: "جرب يوتراك قيد العمل",
+      try_interactive_demo:
+        "جرب العرض التوضيحي التفاعلي لمعرفة كيف يمكن ليوتراك تحويل سير عمل إدارة مشروعك",
+      watch_demo: "مشاهدة العرض التوضيحي",
+      hero_title:
+        "تبسيط مشاريعك مع منصة إدارة المشاريع وتخفيف المخاطر المدعومة بالذكاء الاصطناعي",
       hero_subtitle:
-        "زيادة الإنتاجية، وتعزيز التعاون، وتسليم المشاريع في الوقت المحدد مع منصة إدارة المشاريع البديهية المصممة للفرق الحديثة.",
+        "زيادة الإنتاجية، وتعزيز التعاون، وتسليم المشاريع في الوقت المحدد مع نظام التشغيل الذكي للمشاريع الكبيرة، وإضافة الذكاء والأتمتة إلى إدارة البرامج الكبيرة.",
       get_started: "ابدأ مجانًا",
       book_demo: "حجز عرض توضيحي",
       see_how: "شاهد كيف يعمل",
